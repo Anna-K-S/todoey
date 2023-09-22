@@ -1,20 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:todoey_app/data/todo_task.dart';
 import 'package:todoey_app/service/add_task.dart';
 import 'package:todoey_app/styles/decorations.dart';
 import 'package:todoey_app/styles/text_styles.dart';
 
 class TasksScreen extends StatefulWidget {
+
   const TasksScreen({
     super.key,
   });
+ 
 
   @override
   _TasksScreenState createState() => _TasksScreenState();
 }
 
 class _TasksScreenState extends State<TasksScreen> {
-  final List<String> tasks = [];
-  final List<bool> taskCompleted = [];
+  final List<TodoTask> tasks = [];
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +24,10 @@ class _TasksScreenState extends State<TasksScreen> {
       backgroundColor: Colors.lightBlueAccent,
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.lightBlueAccent,
+        onPressed: _addTask,
         child: const Icon(
           Icons.add,
         ),
-        onPressed: () {
-          _addTask();
-        },
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -77,12 +77,16 @@ class _TasksScreenState extends State<TasksScreen> {
                 ) {
                   return CheckboxListTile(
                     title: Text(
-                      tasks[index],
+                      tasks[index].title,
                     ),
-                    value: taskCompleted[index],
+                    value: tasks[index].isCompleted,
                     onChanged: (bool? newValue) {
                       setState(() {
-                        taskCompleted[index] = newValue!;
+                        tasks[index] = TodoTask(
+                          title: tasks[index].title,
+                          isCompleted: newValue ?? false,
+                        );
+                        if(newValue == null) return;
                       });
                     },
                   );
@@ -99,11 +103,15 @@ class _TasksScreenState extends State<TasksScreen> {
     showDialog(
       context: context,
       builder: (BuildContext context) {
-        return AddTask(
+        return AddTaskDialog(
           onTaskAdded: (newTaskText) {
             setState(() {
-              tasks.add(newTaskText);
-              taskCompleted.add(false);
+              tasks.add(
+                TodoTask(
+                  title: newTaskText,
+                  isCompleted: false,
+                ),
+              );
             });
           },
         );

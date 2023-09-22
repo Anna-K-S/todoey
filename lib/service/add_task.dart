@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:todoey_app/styles/decorations.dart';
 
-class AddTask extends StatefulWidget {
+class AddTaskDialog extends StatefulWidget {
   final Function(String) onTaskAdded;
 
-  const AddTask({
+  const AddTaskDialog({
     required this.onTaskAdded,
     super.key,
   });
 
   @override
-  _AddTaskState createState() => _AddTaskState();
+  _AddTaskDialogState createState() => _AddTaskDialogState();
 }
 
-class _AddTaskState extends State<AddTask> {
+class _AddTaskDialogState extends State<AddTaskDialog> {
   //контроллер
   final TextEditingController _taskController = TextEditingController();
+
+  @override
+  void dispose() {
+    _taskController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,13 +40,7 @@ class _AddTaskState extends State<AddTask> {
       actions: [
         ElevatedButton.icon(
           //при нажатии извлечение текста из текстового поля и удаление начальных и конечных пробелов
-          onPressed: () {
-            final String newTaskText = _taskController.text.trim();
-            if (newTaskText.isNotEmpty) {
-              widget.onTaskAdded(newTaskText);
-            }
-            _closeDialog(context);
-          },
+          onPressed: _addNewTask,
           icon: const Icon(
             Icons.add,
           ),
@@ -50,6 +50,14 @@ class _AddTaskState extends State<AddTask> {
         ),
       ],
     );
+  }
+
+  void _addNewTask() {
+    final String newTaskText = _taskController.text.trim();
+    if (newTaskText.isNotEmpty) {
+      widget.onTaskAdded(newTaskText);
+    }
+    _closeDialog(context);
   }
 
 //закрытие диалогового окна и очистка текстового поля

@@ -5,11 +5,9 @@ import 'package:todoey_app/styles/decorations.dart';
 import 'package:todoey_app/styles/text_styles.dart';
 
 class TasksScreen extends StatefulWidget {
-
   const TasksScreen({
     super.key,
   });
- 
 
   @override
   _TasksScreenState createState() => _TasksScreenState();
@@ -81,12 +79,12 @@ class _TasksScreenState extends State<TasksScreen> {
                     ),
                     value: tasks[index].isCompleted,
                     onChanged: (bool? newValue) {
+                      if (newValue == null) return;
                       setState(() {
                         tasks[index] = TodoTask(
                           title: tasks[index].title,
-                          isCompleted: newValue ?? false,
+                          isCompleted: newValue,
                         );
-                        if(newValue == null) return;
                       });
                     },
                   );

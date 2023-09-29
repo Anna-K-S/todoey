@@ -13,22 +13,16 @@ class Todoey extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: '/welcome',
+      initialRoute: WelcomeScreen.path,
       onGenerateRoute: (settings) => switch (settings.name) {
-        '/welcome' => MaterialPageRoute(
-            builder: (_) => WelcomeScreen(
-              name: settings.arguments.toString(),
-            ),
+        WelcomeScreen.path => MaterialPageRoute(
+            builder: (_) => const WelcomeScreen(),
           ),
-        '/tasks' => MaterialPageRoute(
-            builder: (_) => TasksScreen(
-              name: settings.arguments.toString(),
-            ),
+        TasksScreen.path => MaterialPageRoute(
+            builder: (_) => const TasksScreen(),
           ),
-        '/registration' => MaterialPageRoute(
-            builder: (_) => RegistrationScreen(
-              name: settings.arguments.toString(),
-            ),
+        RegistrationScreen.path => MaterialPageRoute(
+            builder: (_) => const RegistrationScreen(),
           ),
         _ => null
       },

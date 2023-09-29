@@ -36,7 +36,10 @@ class Decorations {
       ),
     ),
     enabledBorder: OutlineInputBorder(
-      borderSide: BorderSide(color: Colors.lightBlueAccent, width: 1.0),
+      borderSide: BorderSide(
+        color: Colors.lightBlueAccent,
+        width: 1.0,
+      ),
       borderRadius: BorderRadius.all(
         Radius.circular(
           15.0,

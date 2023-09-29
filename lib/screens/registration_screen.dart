@@ -4,11 +4,10 @@ import 'package:todoey_app/widgets/app_logo.dart';
 import 'package:todoey_app/widgets/rounded_button.dart';
 
 class RegistrationScreen extends StatefulWidget {
-  final String name;
+  static const path = '/registration';
 
   const RegistrationScreen({
     super.key,
-    required this.name,
   });
 
   @override

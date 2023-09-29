@@ -5,10 +5,9 @@ import 'package:todoey_app/styles/decorations.dart';
 import 'package:todoey_app/styles/text_styles.dart';
 
 class TasksScreen extends StatefulWidget {
-  final String name;
+  static const path = '/tasks';
 
   const TasksScreen({
-    required this.name,
     super.key,
   });
 

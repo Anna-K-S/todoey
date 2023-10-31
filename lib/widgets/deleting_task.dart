@@ -15,6 +15,7 @@ class DeletingTaskWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+  
     return Dismissible(
       key: Key(title),
       onDismissed: (direction) {

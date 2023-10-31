@@ -1,4 +1,4 @@
-// !$*UTF8*$!
+  // !$*UTF8*$!
 {
 	archiveVersion = 1;
 	classes = {
@@ -202,7 +202,6 @@
 				9705A1C41CF9048500538489 /* Embed Frameworks */,
 				3B06AD1E1E4923F5004D2608 /* Thin Binary */,
 				4A7ADDA427E263880F2D1555 /* [CP] Embed Pods Frameworks */,
-				
 			);
 			buildRules = (
 			);

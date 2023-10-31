@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:todoey_app/cubit/auth_cubit.dart';
+import 'package:todoey_app/cubit/tasks_cubit.dart';
 import 'package:todoey_app/screens/registration_screen.dart';
 import 'package:todoey_app/screens/tasks_screen.dart';
-import 'package:todoey_app/service/auth_service.dart';
 import 'package:todoey_app/styles/decorations.dart';
 import 'package:todoey_app/styles/text_styles.dart';
 import 'package:todoey_app/widgets/animated_welcome_screen.dart';
@@ -11,9 +13,12 @@ import 'package:todoey_app/widgets/rounded_button.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const path = '/welcome';
+ 
 
   const WelcomeScreen({
     super.key,
+    
+    
   });
 
   @override
@@ -28,7 +33,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-
+ late final String userEmail;
   @override
   void initState() {
     super.initState();
@@ -64,7 +69,8 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return BlocProvider(create: (context) => TasksCubit()..loadTasks(userEmail),
+    child: Scaffold(
       body: Stack(
         children: [
           Positioned.fill(
@@ -157,6 +163,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
           ),
         ],
       ),
+    ),
     );
   }
 
@@ -164,29 +171,35 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     await Navigator.pushNamed(
       context,
       RegistrationScreen.path,
-      arguments: '/registration',
-    );
-  }
-
-  Future<void> _openTasksScreen() async {
-    await Navigator.pushNamed(
-      context,
-      TasksScreen.path,
-      arguments: '/tasks',
     );
   }
 
   Future<void> _logIn() async {
     try {
-      await AuthService().singIn(
-        _emailController.text.trim(),
-        _passwordController.text.trim(),
+      final authCubit = context.read<AuthCubit>();
+      final email = _emailController.text.trim();
+      await authCubit.authorize(
+        email: email,
+        password: _passwordController.text.trim(),
       );
-      // если вход успешный, переходим в ChatScreen
-      _openTasksScreen();
+
+      authCubit.state.whenOrNull(
+        // если вход успешный, переходим в ChatScreen
+        authorized: (user) => _openTasksScreen(user.email),
+      );
     } catch (e) {
       _errorSingIn();
     }
+  }
+
+  Future<void> _openTasksScreen(String email) async {
+    
+    await Navigator.pushNamed(
+      context,
+      TasksScreen.path,
+      arguments: email,
+      
+    );
   }
 
   void _errorSingIn() {

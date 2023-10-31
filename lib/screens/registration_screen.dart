@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:todoey_app/cubit/auth_cubit.dart';
+import 'package:todoey_app/screens/tasks_screen.dart';
 import 'package:todoey_app/service/auth_service.dart';
 import 'package:todoey_app/styles/decorations.dart';
 import 'package:todoey_app/widgets/app_logo.dart';
@@ -17,6 +19,10 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
+  final _authCubit = AuthCubit(
+    authService: AuthService(),
+  );
+
   String email = '';
   String password = '';
 
@@ -79,10 +85,11 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
 
   Future<void> _registration() async {
     try {
-      await AuthService().registration(
-        email,
-        password,
+      await _authCubit.register(
+        email: email,
+        password: password,
       );
+
       _openTasksList();
     } catch (e) {
       _registrationError();
@@ -92,7 +99,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
   Future<void> _openTasksList() async {
     await Navigator.pushNamed(
       context,
-      '/tasks',
+      TasksScreen.path,
+      arguments: email,
     );
   }
 

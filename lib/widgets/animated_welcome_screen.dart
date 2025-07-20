@@ -25,4 +25,8 @@ class AnimatedWelcomeText extends StatelessWidget {
       ),
     );
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> main

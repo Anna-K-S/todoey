@@ -14,10 +14,6 @@ class Decorations {
   );
 
   static const dialogTask = InputDecoration(
-<<<<<<< HEAD
-=======
-
->>>>>>> main
     contentPadding: EdgeInsets.symmetric(
       vertical: 10.0,
       horizontal: 20.0,
@@ -40,14 +36,7 @@ class Decorations {
       ),
     ),
     enabledBorder: OutlineInputBorder(
-<<<<<<< HEAD
       borderSide: BorderSide(color: Colors.lightBlueAccent, width: 1.0),
-=======
-      borderSide: BorderSide(
-        color: Colors.lightBlueAccent,
-        width: 1.0,
-      ),
->>>>>>> main
       borderRadius: BorderRadius.all(
         Radius.circular(
           15.0,
@@ -63,18 +52,4 @@ class Decorations {
       ),
     ),
   );
-<<<<<<< HEAD
 }
-=======
-}
-
-          contentPadding: EdgeInsets.symmetric(
-            vertical: 10.0,
-            horizontal: 20.0,
-          ),
-          hintText: 'Type your task here...',
-          border: InputBorder.none,
-        );
-}
-
->>>>>>> main

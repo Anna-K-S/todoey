@@ -1,24 +1,36 @@
 import 'package:flutter/material.dart';
+<<<<<<< HEAD
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:todoey_app/cubit/auth_cubit.dart';
 import 'package:todoey_app/cubit/tasks_cubit.dart';
+=======
+>>>>>>> main
 import 'package:todoey_app/screens/registration_screen.dart';
 import 'package:todoey_app/screens/tasks_screen.dart';
 import 'package:todoey_app/styles/decorations.dart';
 import 'package:todoey_app/styles/text_styles.dart';
 import 'package:todoey_app/widgets/animated_welcome_screen.dart';
 import 'package:todoey_app/widgets/app_logo.dart';
+<<<<<<< HEAD
 import 'package:todoey_app/widgets/error_dialog.dart';
+=======
+>>>>>>> main
 import 'package:todoey_app/widgets/rounded_button.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const path = '/welcome';
+<<<<<<< HEAD
  
 
   const WelcomeScreen({
     super.key,
     
     
+=======
+
+  const WelcomeScreen({
+    super.key,
+>>>>>>> main
   });
 
   @override
@@ -33,7 +45,11 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+<<<<<<< HEAD
  late final String userEmail;
+=======
+
+>>>>>>> main
   @override
   void initState() {
     super.initState();
@@ -69,8 +85,12 @@ class _WelcomeScreenState extends State<WelcomeScreen>
 
   @override
   Widget build(BuildContext context) {
+<<<<<<< HEAD
     return BlocProvider(create: (context) => TasksCubit()..loadTasks(userEmail),
     child: Scaffold(
+=======
+    return Scaffold(
+>>>>>>> main
       body: Stack(
         children: [
           Positioned.fill(
@@ -149,7 +169,11 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                   ],
                 ),
                 RoundedButton(
+<<<<<<< HEAD
                   onPressed: _logIn,
+=======
+                  onPressed: _openTasksScreen,
+>>>>>>> main
                   text: 'Log In',
                   color: const Color.fromARGB(
                     255,
@@ -163,7 +187,10 @@ class _WelcomeScreenState extends State<WelcomeScreen>
           ),
         ],
       ),
+<<<<<<< HEAD
     ),
+=======
+>>>>>>> main
     );
   }
 
@@ -171,6 +198,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
     await Navigator.pushNamed(
       context,
       RegistrationScreen.path,
+<<<<<<< HEAD
     );
   }
 
@@ -215,4 +243,17 @@ class _WelcomeScreenState extends State<WelcomeScreen>
   void _closeDialog() {
     Navigator.of(context).pop();
   }
+=======
+      arguments: '/registration',
+    );
+  }
+
+  Future<void> _openTasksScreen() async {
+    await Navigator.pushNamed(
+      context,
+      TasksScreen.path,
+      arguments: '/tasks',
+    );
+  }
+>>>>>>> main
 }

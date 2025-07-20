@@ -1,4 +1,5 @@
 PODS:
+<<<<<<< HEAD
   - abseil/algorithm (1.20220623.0):
     - abseil/algorithm/algorithm (= 1.20220623.0)
     - abseil/algorithm/container (= 1.20220623.0)
@@ -776,10 +777,20 @@ DEPENDENCIES:
   - cloud_firestore (from `.symlinks/plugins/cloud_firestore/ios`)
   - firebase_auth (from `.symlinks/plugins/firebase_auth/ios`)
   - firebase_core (from `.symlinks/plugins/firebase_core/ios`)
+=======
+  - Flutter (1.0.0)
+  - flutter_native_splash (0.0.1):
+    - Flutter
+  - modal_progress_hud_nsn (0.4.0):
+    - Flutter
+
+DEPENDENCIES:
+>>>>>>> main
   - Flutter (from `Flutter`)
   - flutter_native_splash (from `.symlinks/plugins/flutter_native_splash/ios`)
   - modal_progress_hud_nsn (from `.symlinks/plugins/modal_progress_hud_nsn/ios`)
 
+<<<<<<< HEAD
 SPEC REPOS:
   trunk:
     - abseil
@@ -806,6 +817,9 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/firebase_auth/ios"
   firebase_core:
     :path: ".symlinks/plugins/firebase_core/ios"
+=======
+EXTERNAL SOURCES:
+>>>>>>> main
   Flutter:
     :path: Flutter
   flutter_native_splash:
@@ -814,6 +828,7 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/modal_progress_hud_nsn/ios"
 
 SPEC CHECKSUMS:
+<<<<<<< HEAD
   abseil: 926fb7a82dc6d2b8e1f2ed7f3a718bce691d1e46
   BoringSSL-GRPC: 3175b25143e648463a56daeaaa499c6cb86dad33
   cloud_firestore: abc819b936be92e6167aec1a8983d1e48ded2674
@@ -840,3 +855,12 @@ SPEC CHECKSUMS:
 PODFILE CHECKSUM: 705b5e27f128096fb1f1c64b63e9df8fe0453218
 
 COCOAPODS: 1.13.0
+=======
+  Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
+  flutter_native_splash: 52501b97d1c0a5f898d687f1646226c1f93c56ef
+  modal_progress_hud_nsn: b66f99f02da7de83484e50dfe1fe2d71ac406e67
+
+PODFILE CHECKSUM: 70d9d25280d0dd177a5f637cdb0f0b0b12c6a189
+
+COCOAPODS: 1.12.1
+>>>>>>> main

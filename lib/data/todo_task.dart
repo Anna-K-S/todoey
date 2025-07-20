@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'todo_task.freezed.dart';
@@ -9,4 +10,17 @@ class TodoTask with _$TodoTask {
     required bool isCompleted,
     required String id,
   }) = _TodoTask;
+=======
+class TodoTask {
+  final String title;
+  final bool isCompleted;
+
+  TodoTask({
+    required this.title,
+    required this.isCompleted,
+  });
+
+}
+
+>>>>>>> main
 }

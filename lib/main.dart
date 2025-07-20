@@ -8,15 +8,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:todoey_app/service/auth_service.dart';
 import 'package:todoey_app/service/firebase_options.dart';
 
-<<<<<<< HEAD
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-=======
-import 'package:todoey_app/screens/registration_screen.dart';
-import 'package:todoey_app/screens/tasks_screen.dart';
-import 'package:todoey_app/screens/welcome_screen.dart';
-
->>>>>>> main
 
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   runApp(
@@ -33,35 +26,21 @@ class Todoey extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-<<<<<<< HEAD
-=======
-
->>>>>>> main
       initialRoute: WelcomeScreen.path,
       onGenerateRoute: (settings) => switch (settings.name) {
         WelcomeScreen.path => MaterialPageRoute(
             builder: (_) => const WelcomeScreen(),
           ),
         TasksScreen.path => MaterialPageRoute(
-<<<<<<< HEAD
-            builder: (_) => TasksScreen(userEmail: settings.arguments as String,),
-=======
-            builder: (_) => const TasksScreen(),
->>>>>>> main
+            builder: (_) => TasksScreen(
+              userEmail: settings.arguments as String,
+            ),
           ),
         RegistrationScreen.path => MaterialPageRoute(
             builder: (_) => const RegistrationScreen(),
           ),
         _ => null
-<<<<<<< HEAD
       },
-=======
-
-      home: TasksScreen(),
-      
-     
-
->>>>>>> main
     );
   }
 }

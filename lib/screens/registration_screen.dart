@@ -1,15 +1,6 @@
 import 'package:flutter/material.dart';
-<<<<<<< HEAD
-import 'package:todoey_app/cubit/auth_cubit.dart';
-import 'package:todoey_app/screens/tasks_screen.dart';
-import 'package:todoey_app/service/auth_service.dart';
 import 'package:todoey_app/styles/decorations.dart';
 import 'package:todoey_app/widgets/app_logo.dart';
-import 'package:todoey_app/widgets/error_dialog.dart';
-=======
-import 'package:todoey_app/styles/decorations.dart';
-import 'package:todoey_app/widgets/app_logo.dart';
->>>>>>> main
 import 'package:todoey_app/widgets/rounded_button.dart';
 
 class RegistrationScreen extends StatefulWidget {
@@ -24,13 +15,6 @@ class RegistrationScreen extends StatefulWidget {
 }
 
 class _RegistrationScreenState extends State<RegistrationScreen> {
-<<<<<<< HEAD
-  final _authCubit = AuthCubit(
-    authService: AuthService(),
-  );
-
-=======
->>>>>>> main
   String email = '';
   String password = '';
 
@@ -81,11 +65,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
               height: 24.0,
             ),
             RoundedButton(
-<<<<<<< HEAD
-              onPressed: _registration,
-=======
               onPressed: () {},
->>>>>>> main
               color: Colors.blueAccent,
               text: 'Register',
             ),
@@ -94,43 +74,4 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
       ),
     );
   }
-<<<<<<< HEAD
-
-  Future<void> _registration() async {
-    try {
-      await _authCubit.register(
-        email: email,
-        password: password,
-      );
-
-      _openTasksList();
-    } catch (e) {
-      _registrationError();
-    }
-  }
-
-  Future<void> _openTasksList() async {
-    await Navigator.pushNamed(
-      context,
-      TasksScreen.path,
-      arguments: email,
-    );
-  }
-
-  void _registrationError() {
-    showDialog(
-      context: context,
-      builder: (context) => ErrorDialog(
-        errorMessage:
-            'This email address is already in use by another account. Please try again. ',
-        onPressed: _closeDialog,
-      ),
-    );
-  }
-
-  void _closeDialog() {
-    Navigator.of(context).pop();
-  }
-=======
->>>>>>> main
 }

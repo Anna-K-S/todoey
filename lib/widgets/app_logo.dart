@@ -23,8 +23,4 @@ class AppLogo extends StatelessWidget {
       ),
     );
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> main

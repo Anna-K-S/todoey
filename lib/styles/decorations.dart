@@ -14,6 +14,7 @@ class Decorations {
   );
 
   static const dialogTask = InputDecoration(
+
     contentPadding: EdgeInsets.symmetric(
       vertical: 10.0,
       horizontal: 20.0,
@@ -56,3 +57,13 @@ class Decorations {
     ),
   );
 }
+
+          contentPadding: EdgeInsets.symmetric(
+            vertical: 10.0,
+            horizontal: 20.0,
+          ),
+          hintText: 'Type your task here...',
+          border: InputBorder.none,
+        );
+}
+

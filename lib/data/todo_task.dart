@@ -6,4 +6,7 @@ class TodoTask {
     required this.title,
     required this.isCompleted,
   });
+
+}
+
 }

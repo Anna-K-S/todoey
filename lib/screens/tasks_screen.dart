@@ -5,6 +5,9 @@ import 'package:todoey_app/styles/decorations.dart';
 import 'package:todoey_app/styles/text_styles.dart';
 
 class TasksScreen extends StatefulWidget {
+
+  static const path = '/tasks';
+
   const TasksScreen({
     super.key,
   });
@@ -14,6 +17,8 @@ class TasksScreen extends StatefulWidget {
 }
 
 class _TasksScreenState extends State<TasksScreen> {
+
+
   final List<TodoTask> tasks = [];
 
   @override
@@ -96,6 +101,9 @@ class _TasksScreenState extends State<TasksScreen> {
       ),
     );
   }
+
+
+//вызов диалогового окна для добавления новой задачи
 
   void _addTask() {
     showDialog(

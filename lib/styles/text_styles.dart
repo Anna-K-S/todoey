@@ -6,6 +6,9 @@ class TextStyles {
     color: Colors.white,
     fontSize: 50.0,
     fontWeight: FontWeight.w700,
+
+  );
+
   ) ;
 
 
@@ -13,4 +16,23 @@ class TextStyles {
     color: Colors.white,
     fontSize: 18.0,
   );
+
+
+  static const registrationButton = TextStyle(
+    fontSize: 13.0,
+    fontWeight: FontWeight.w700,
+    color: Color.fromARGB(
+      255,
+      48,
+      153,
+      238,
+    ),
+  );
+
+  static const text = TextStyle(
+    fontSize: 10,
+    color: Colors.black87,
+  );
+}
+
 }

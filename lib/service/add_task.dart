@@ -41,6 +41,7 @@ class _AddTaskDialogState extends State<AddTaskDialog> {
         ElevatedButton.icon(
           //при нажатии извлечение текста из текстового поля и удаление начальных и конечных пробелов
           onPressed: _addNewTask,
+
           icon: const Icon(
             Icons.add,
           ),
